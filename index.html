@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Trading Bot | System Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #020617; /* Brand Dark Navy */
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Quantum Grid Background */
+        .cyber-grid {
+            position: fixed; top: 0; left: 0; width: 200vw; height: 200vh;
+            /* Blue/Purple Grid lines */
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Ambient Glow Behind */
+        .glow-spot {
+            position: absolute; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* The "Portal" Card */
+        .hud-panel {
+            background: rgba(15, 23, 42, 0.6); /* Slate-900 transparent */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        /* Glowing corners (Brand Blue) */
+        .hud-corner {
+            position: absolute; width: 20px; height: 20px;
+            border: 2px solid #3b82f6; /* Blue-500 */
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        .tl { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+        .tr { top: -1px; right: -1px; border-left: 0; border-bottom: 0; }
+        .bl { bottom: -1px; left: -1px; border-right: 0; border-top: 0; }
+        .br { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+        /* Brand Gradient Button */
+        .btn-quantum {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); /* Blue to Purple */
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-quantum:hover {
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+            transform: scale(1.02) translateY(-2px);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .mono-text { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Status Dot */
+        .status-dot {
+            width: 8px; height: 8px; background-color: #60a5fa; /* Blue-400 */
+            border-radius: 50%;
+            box-shadow: 0 0 10px #3b82f6;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="cyber-grid"></div>
+    <div class="glow-spot"></div>
+
+    <div class="hud-panel w-full max-w-5xl p-12 md:p-16 rounded-sm relative flex flex-col md:flex-row gap-16 items-center">
+        
+        <div class="hud-corner tl"></div><div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div><div class="hud-corner br"></div>
+
+        <div class="flex-1 text-left">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="status-dot"></div>
+                <span class="mono-text text-xs text-blue-400 tracking-widest">SYSTEM ONLINE v1.0</span>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
+                QUANTUM
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">TRADING BOT</span>
+            </h1>
+            
+            <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                Configure your strategy and make the bot do everything.
+                <br>
+                <span class="mono-text text-xs text-blue-400">> System Latency: < 15ms... OPTIMIZED</span>
+                <br>
+                <span class="mono-text text-xs text-purple-400">> Risk Management Protocols... ACTIVE</span>
+            </p>
+
+            <div class="flex flex-col gap-4">
+                <a href="QuantumBot.zip" download class="btn-quantum py-4 px-8 text-center rounded flex items-center justify-center gap-3">
+                    [ DOWNLOAD APP ]
+                </a>
+                
+                <a href="https://buy.polar.sh/polar_cl_cwToJSxEgvnXfxdUo6CyWGZD13D9MjOlIjUuE2fo0Mv" target="_blank" class="text-slate-500 hover:text-white text-sm mono-text text-center transition decoration-dotted underline underline-offset-4">
+                    // PURCHASE_LICENSE_KEY
+                </a>
+            </div>
+        </div>
+
+        <div class="flex-1 w-full border-l border-white/5 pl-0 md:pl-16 border-t md:border-t-0 pt-8 md:pt-0">
+            <h3 class="text-white font-bold mb-6 flex items-center gap-2">
+                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                INSTALLATION_GUIDE
+            </h3>
+
+            <div class="space-y-6">
+                <div class="group">
+                    <div class="mono-text text-xs text-blue-500 mb-1">STEP 01</div>
+                    <div class="text-sm text-slate-300">Download the <strong>.ZIP</strong> file & Extract.</div>
+                </div>
+
+                <div class="group">
+                    <div class="mono-text text-xs text-blue-500 mb-1">STEP 02</div>
+                    <div class="text-sm text-slate-300">
+                        Launch <strong>QuantumBot.exe</strong>.
+                        <div class="mt-2 text-xs text-blue-300 bg-blue-500/10 p-2 border border-blue-500/20 rounded">
+                            ⚠ ALERT: If SmartScreen appears, click <u>More Info</u> -> <u>Run Anyway</u>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="mono-text text-xs text-blue-500 mb-1">STEP 03</div>
+                    <div class="text-sm text-slate-300">Enter License Key to unlock core.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="fixed bottom-6 text-center w-full mono-text text-[10px] text-slate-700 pointer-events-none">
+        QUANTUM TRADING BOT // SECURE CONNECTION // ENCRYPTED
+    </div>
+
+</body>
+</html>
